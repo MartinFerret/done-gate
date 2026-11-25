@@ -1,2 +1,10 @@
-/** Placeholder until the gate lands. */
-export const name: string = 'done-gate';
+export {
+  type Check,
+  type CheckContext,
+  type CheckResult,
+  createDoneGate,
+  type Decision,
+  type DoneGate,
+  type DoneGateOptions,
+  type Outcome,
+} from './gate.ts';

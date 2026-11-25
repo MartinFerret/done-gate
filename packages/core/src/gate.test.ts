@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import { type CheckResult, createDoneGate } from './index.ts';
+import { type Check, type CheckResult, createDoneGate } from './index.ts';
 
 const pass: CheckResult = { ok: true };
 const fail = (reason: string): CheckResult => ({ ok: false, reason });
@@ -38,7 +38,7 @@ describe('decide', () => {
   });
 
   test('gives the check the claim, the attempt number and an abort signal', async () => {
-    const check = vi.fn(() => pass);
+    const check = vi.fn<Check>(() => pass);
     const gate = createDoneGate({ check });
 
     await gate.decide('booked');
@@ -63,7 +63,7 @@ describe('refusal budget', () => {
 
   test('a run that ended as not done can never become a success', async () => {
     const results = [fail('No booking found'), pass];
-    const check = vi.fn(() => results.shift() ?? pass);
+    const check = vi.fn<Check>(() => results.shift() ?? pass);
     const gate = createDoneGate({ check, maxRefusals: 1 });
 
     await gate.decide('booked');
@@ -75,7 +75,7 @@ describe('refusal budget', () => {
   });
 
   test('an accepted run stays accepted without asking again', async () => {
-    const check = vi.fn(() => pass);
+    const check = vi.fn<Check>(() => pass);
     const gate = createDoneGate({ check });
 
     await gate.decide('booked');
@@ -143,7 +143,9 @@ describe('a check that cannot answer is a refusal, never a pass', () => {
     ['a truthy ok', { ok: 'yes' }],
     ['a refusal with no reason', { ok: false }],
   ])('a check that returns %s', async (_label, value) => {
-    const gate = createDoneGate({ check: () => value as unknown as CheckResult });
+    // A check written in plain JavaScript can return anything.
+    // oxlint-disable-next-line typescript/no-unsafe-type-assertion
+    const gate = createDoneGate({ check: () => value as CheckResult });
 
     expect(await gate.decide('booked')).toMatchObject({
       accepted: false,
