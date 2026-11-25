@@ -7,7 +7,7 @@ import {
   TracerProvider,
 } from '@opentelemetry/sdk-trace';
 import { afterAll, beforeAll, beforeEach, expect, test, vi } from 'vitest';
-import { createDoneGate } from './index.ts';
+import { type Check, createDoneGate } from './index.ts';
 
 const exporter = new InMemorySpanExporter();
 const provider = new TracerProvider({ spanProcessors: [new SimpleSpanProcessor({ exporter })] });
@@ -29,6 +29,12 @@ const spans = (): ReadableSpan[] => exporter.getFinishedSpans();
 const onlySpan = (): ReadableSpan => {
   const [span, ...rest] = spans();
   if (!span || rest.length > 0) throw new Error(`expected one span, got ${spans().length}`);
+  return span;
+};
+
+const byName = (name: string): ReadableSpan => {
+  const span = spans().find((s) => s.name === name);
+  if (!span) throw new Error(`no span named ${name}`);
   return span;
 };
 
@@ -135,11 +141,6 @@ test('the span joins the active trace, and spans made by the check are its child
     parent.end();
   });
 
-  const byName = (name: string): ReadableSpan => {
-    const span = spans().find((s) => s.name === name);
-    if (!span) throw new Error(`no span named ${name}`);
-    return span;
-  };
   const tool = byName('execute_tool done');
   const decision = byName('done_gate.decide done');
   const read = byName('read bookings');
@@ -148,7 +149,7 @@ test('the span joins the active trace, and spans made by the check are its child
 });
 
 test('a decision after the gate closed is still traced, without running the check', async () => {
-  const check = vi.fn(() => ({ ok: true }) as const);
+  const check = vi.fn<Check>(() => ({ ok: true }));
   const gate = createDoneGate({ check });
   await gate.decide('booked');
   exporter.reset();

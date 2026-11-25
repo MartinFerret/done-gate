@@ -1,3 +1,5 @@
+import { type TracedDecision, traceDecision } from './tracing.ts';
+
 /** What a check answers: the task is really done, or why it is not. */
 export type CheckResult = { readonly ok: true } | { readonly ok: false; readonly reason: string };
 
@@ -23,6 +25,8 @@ export interface DoneGateOptions {
   readonly timeoutMs?: number;
   /** Name of the gate in traces. Default "done". */
   readonly name?: string;
+  /** Record the claim in the decision span. Default true. */
+  readonly recordContent?: boolean;
 }
 
 /** The answer to one "done" claim. */
@@ -55,6 +59,7 @@ export function createDoneGate(options: DoneGateOptions): DoneGate {
     maxRefusals = DEFAULT_MAX_REFUSALS,
     timeoutMs = DEFAULT_TIMEOUT_MS,
     name = 'done',
+    recordContent = true,
   } = options;
   if (!Number.isInteger(maxRefusals) || maxRefusals < 1) {
     throw new TypeError(`maxRefusals must be a positive integer, got ${maxRefusals}`);
@@ -69,28 +74,33 @@ export function createDoneGate(options: DoneGateOptions): DoneGate {
   let lastReason = '';
   let queue: Promise<unknown> = Promise.resolve();
 
-  async function decideNow(claim: string): Promise<Decision> {
-    if (outcome === 'done') return { accepted: true };
+  async function decideNow(claim: string): Promise<TracedDecision> {
+    const state = (decision: Decision, errorType?: string): TracedDecision => ({
+      decision,
+      outcome,
+      refusals,
+      refusalsLeft: maxRefusals - refusals,
+      ...(errorType !== undefined && { errorType }),
+    });
+
+    if (outcome === 'done') return state({ accepted: true });
     if (outcome === 'not_done') {
-      return {
-        accepted: false,
-        reason: `The run already ended as not done: ${lastReason}`,
-        refusalsLeft: 0,
-      };
+      const reason = `The run already ended as not done: ${lastReason}`;
+      return state({ accepted: false, reason, refusalsLeft: 0 });
     }
 
     attempts += 1;
     const result = await runCheck(check, { claim, attempt: attempts }, timeoutMs);
     if (result.ok) {
       outcome = 'done';
-      return { accepted: true };
+      return state({ accepted: true });
     }
 
     refusals += 1;
     lastReason = result.reason;
     const refusalsLeft = maxRefusals - refusals;
     if (refusalsLeft === 0) outcome = 'not_done';
-    return { accepted: false, reason: result.reason, refusalsLeft };
+    return state({ accepted: false, reason: result.reason, refusalsLeft }, result.errorType);
   }
 
   return {
@@ -103,46 +113,62 @@ export function createDoneGate(options: DoneGateOptions): DoneGate {
     },
     decide(claim: string): Promise<Decision> {
       // One decision at a time: two claims in the same step must not share a refusal count.
-      const decision = queue.then(() => decideNow(claim));
+      const decision = queue.then(() =>
+        traceDecision({ gateName: name, claim: recordContent ? claim : undefined }, () =>
+          decideNow(claim),
+        ),
+      );
       queue = decision;
       return decision;
     },
   };
 }
 
+/** A check result, plus what went wrong when the check itself could not answer. */
+type Checked = CheckResult & { readonly errorType?: string };
+
 /** Runs the check. Whatever goes wrong comes back as a refusal, never as a pass or a throw. */
 async function runCheck(
   check: Check,
   input: Omit<CheckContext, 'signal'>,
   timeoutMs: number,
-): Promise<CheckResult> {
+): Promise<Checked> {
   const controller = new AbortController();
   let timer: ReturnType<typeof setTimeout> | undefined;
-  const timedOut = new Promise<CheckResult>((resolve) => {
+  const timedOut = new Promise<Checked>((resolve) => {
     timer = setTimeout(() => {
       controller.abort();
-      resolve({ ok: false, reason: `The check timed out after ${timeoutMs} ms` });
+      resolve({
+        ok: false,
+        reason: `The check timed out after ${timeoutMs} ms`,
+        errorType: 'timeout',
+      });
     }, timeoutMs);
   });
 
   try {
     const answer = Promise.resolve().then(() => check({ ...input, signal: controller.signal }));
-    return validate(await Promise.race([answer, timedOut]));
+    const first = await Promise.race([answer.then(validate), timedOut]);
+    return first;
   } catch (error) {
-    return { ok: false, reason: `The check failed: ${messageOf(error)}` };
+    return {
+      ok: false,
+      reason: `The check failed: ${messageOf(error)}`,
+      errorType: error instanceof Error ? error.name : 'unknown',
+    };
   } finally {
     clearTimeout(timer);
   }
 }
 
-function validate(result: unknown): CheckResult {
+function validate(result: unknown): Checked {
   if (typeof result === 'object' && result !== null && 'ok' in result) {
     if (result.ok === true) return { ok: true };
     if (result.ok === false && 'reason' in result && typeof result.reason === 'string') {
       return { ok: false, reason: result.reason };
     }
   }
-  return { ok: false, reason: 'The check returned an invalid result' };
+  return { ok: false, reason: 'The check returned an invalid result', errorType: 'invalid_result' };
 }
 
 function messageOf(error: unknown): string {

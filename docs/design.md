@@ -72,7 +72,8 @@ result. The loop stops through a stop condition that reads `gate.outcome`.
 
 One span per decision, created with `@opentelemetry/api` only. With no SDK registered, the API
 returns no-op spans and the gate does no tracing work. `@opentelemetry/api` is an optional peer
-dependency: if it is not installed, the gate skips tracing.
+dependency, loaded on the first decision: if it is not installed, the gate skips tracing. The span
+is active while the check runs, so what the check itself traces (an HTTP call, a query) is its child.
 
 ### What the GenAI conventions cover
 
@@ -110,7 +111,7 @@ So the gate uses its own namespace, declared in a small registry extension (`con
 | `done_gate.refusals_left` | remaining budget |
 | `done_gate.outcome` | `pending`, `done` or `not_done` after this decision |
 | `done_gate.claim.summary` | what the agent claimed (content, can be turned off) |
-| `error.type` | set when the check threw or timed out (`timeout` or the error name); this one is a stable core attribute |
+| `error.type` | set when the check could not answer: `timeout`, `invalid_result` or the name of the thrown error; this one is a stable core attribute |
 
 The span status stays unset on a refusal: a refusal is the gate working. It is set to error only
 when the check itself failed (threw or timed out).
