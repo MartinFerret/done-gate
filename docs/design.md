@@ -151,4 +151,19 @@ useful in a trace.
 
 ## Tooling
 
-To be completed in step 1 with the reasons for each tool.
+Exact versions are pinned in the root `package.json`. Each choice was tried in a throwaway package
+before being adopted.
+
+| Tool | Why this one |
+|---|---|
+| pnpm workspace | One lockfile, packages linked locally, examples excluded from publishing by `private: true`. |
+| TypeScript 7.0.2, strict | `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `verbatimModuleSyntax`, `erasableSyntaxOnly`. `module: nodenext` rather than `bundler`: it enforces what a Node consumer actually resolves. |
+| `isolatedDeclarations` | Every export carries an explicit type, so declarations are generated per file without the type checker. It also keeps the public API deliberate: nothing is exported with an inferred type. |
+| tsdown 0.23.7 | The tsup README says it is no longer actively maintained and points to tsdown. tsdown runs publint and "are the types wrong" at the end of every build, so a broken `exports` map fails the build. |
+| ESM only | See "What is not supported". Checked with `attw --profile esm-only`. |
+| Vitest 5 | Workspace projects in one run, TypeScript without a build step. |
+| oxlint with type-aware rules | `no-floating-promises` and `no-misused-promises` matter in a library whose core is one async decision. oxlint runs them on the same Go type checker as TypeScript 7. typescript-eslint 8 does not accept TypeScript 7 yet, and Biome's equivalents are still in its nursery group. |
+| Biome, formatter only | Formatting is not worth a debate. Markdown is excluded: tables are written by hand. |
+| changesets | Versions and changelogs per package. Configured, never run: nothing is published. |
+| CI on Node 22, 24 and 26 | The three LTS lines alive on 2026-11-25 (26 active, 24 and 22 in maintenance). `ai` 7 and `@mastra/core` 1.86 need 22 or later, so nothing older is claimed. |
+| pnpm 10.34.6 | The version this repo was built with, pinned in `packageManager`. |

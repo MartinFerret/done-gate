@@ -1,0 +1,42 @@
+{
+  "name": "done-gate",
+  "version": "0.0.0",
+  "description": "Stops an AI agent from declaring \"done\" until a check against the real system passes.",
+  "license": "MIT",
+  "author": "Martin Ferret",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinFerret/done-gate.git",
+    "directory": "packages/core"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "harness",
+    "verification",
+    "opentelemetry"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit"
+  }
+}

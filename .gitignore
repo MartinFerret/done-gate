@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.tgz
+*.log
+.DS_Store
+# local runs that are not measured batches
+runs/
