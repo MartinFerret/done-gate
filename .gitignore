@@ -6,3 +6,4 @@ dist/
 .DS_Store
 # local runs that are not measured batches
 runs/
+conformance/report/weaver.log

@@ -1,0 +1,6 @@
+# A span carries no type, so tell live-check which spans are gate decisions.
+[[live-check.matchers]]
+id = "match.done_gate.decide"
+sample_type = "span"
+when = '"done_gate.name" in attributes'
+signal = "done_gate.decide"

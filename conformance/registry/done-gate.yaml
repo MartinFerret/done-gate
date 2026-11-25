@@ -1,0 +1,84 @@
+file_format: definition/2
+
+attributes:
+  - key: done_gate.name
+    type: string
+    brief: Name of the gate, set by the application.
+    note: SHOULD have low cardinality.
+    examples: ["done", "booking"]
+    stability: development
+  - key: done_gate.accepted
+    type: boolean
+    brief: Whether the "done" claim was accepted, that is whether the check passed.
+    examples: [true]
+    stability: development
+  - key: done_gate.reason
+    type: string
+    brief: Why the claim was refused, as returned by the check.
+    examples: ["No booking found for Alice on Tuesday 14:00"]
+    stability: development
+  - key: done_gate.refusal.count
+    type: int
+    brief: Number of claims refused so far in this run, this decision included.
+    examples: [1]
+    stability: development
+  - key: done_gate.refusals_left
+    type: int
+    brief: Refusals left before the run ends as not done.
+    examples: [2]
+    stability: development
+  - key: done_gate.outcome
+    type:
+      members:
+        - id: pending
+          value: "pending"
+          brief: No claim has been accepted yet and the refusal budget is not used up.
+          stability: development
+        - id: done
+          value: "done"
+          brief: A claim was accepted.
+          stability: development
+        - id: not_done
+          value: "not_done"
+          brief: The refusal budget ran out. The run did not succeed.
+          stability: development
+    brief: Where the run stands after this decision.
+    stability: development
+  - key: done_gate.claim.summary
+    type: string
+    brief: What the agent claimed to have done.
+    note: "Content produced by the model. Can be turned off with the option recordContent set to false."
+    examples: ["Booked the Tuesday 14:00 slot for Alice."]
+    stability: development
+
+spans:
+  - type: done_gate.decide
+    kind: internal
+    name:
+      note: >
+        **Span name** SHOULD be `done_gate.decide {done_gate.name}`.
+    brief: One decision of the gate on one "done" claim.
+    note: |
+      The span covers the check. Its status is left unset when the claim is refused:
+      a refusal is the gate working. It is set to error only when the check itself
+      could not answer (it threw, timed out or returned an invalid result).
+    stability: development
+    attributes:
+      - ref: done_gate.name
+        requirement_level: required
+      - ref: done_gate.accepted
+        requirement_level: required
+      - ref: done_gate.refusal.count
+        requirement_level: required
+      - ref: done_gate.refusals_left
+        requirement_level: required
+      - ref: done_gate.outcome
+        requirement_level: required
+      - ref: done_gate.reason
+        requirement_level:
+          conditionally_required: If the claim was refused.
+      - ref: done_gate.claim.summary
+        requirement_level: opt_in
+      - ref: error.type
+        requirement_level:
+          conditionally_required: If the check could not answer.

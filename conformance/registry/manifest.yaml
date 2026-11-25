@@ -1,0 +1,10 @@
+# The done-gate registry: the attributes and the span done-gate emits, on top of the GenAI
+# semantic conventions pinned at tag v0.1.0 (commit below).
+file_format: definition_manifest/2.0
+name: done-gate
+description: Telemetry emitted by done-gate, a gate on an AI agent's "done" claim.
+schema_url: https://github.com/MartinFerret/done-gate/schemas/0.1.0
+stability: development
+dependencies:
+  - schema_url: https://opentelemetry.io/schemas/semconv-genai-dev/0.1.0-dev
+    registry_path: https://github.com/open-telemetry/semantic-conventions-genai.git@d0e74ba6c48bcc4ded473b1828a8212f06b23753[model]

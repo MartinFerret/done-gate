@@ -1,0 +1,2313 @@
+{
+  "samples": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "name": "service.name",
+            "value": "done-gate-conformance",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [],
+              "highest_advice_level": null
+            }
+          }
+        ],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "unexpected_attribute",
+              "context": {
+                "attribute_key": "service.name",
+                "schema_url": [
+                  "https://opentelemetry.io/schemas/1.45.0"
+                ]
+              },
+              "message": "Attribute 'service.name' is not declared by this registry. It is defined in https://opentelemetry.io/schemas/1.45.0.",
+              "level": "improvement",
+              "signal_type": "resource",
+              "signal_name": null
+            }
+          ],
+          "highest_advice_level": "improvement",
+          "match_info": {
+            "unmatched": false,
+            "signal_expected": false
+          }
+        }
+      }
+    },
+    {
+      "instrumentation_scope": {
+        "name": "done-gate",
+        "version": null,
+        "schema_url": null,
+        "attributes": [],
+        "dropped_attributes_count": 0,
+        "live_check_result": {
+          "all_advice": [],
+          "highest_advice_level": null,
+          "match_info": {
+            "unmatched": false,
+            "signal_expected": false
+          }
+        }
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": true,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 0,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 3,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.reason"
+              },
+              "message": "Conditionally required attribute 'done_gate.reason' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "97bbdbadd5368b85875b7f8b8832e3b4",
+        "span_id": "c146299b8054423f",
+        "start_time": "2026-11-25T12:56:07.162+00:00",
+        "end_time": "2026-11-25T12:56:07.162534375+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": true,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 0,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 3,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.reason"
+              },
+              "message": "Conditionally required attribute 'done_gate.reason' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "1909dbc11844ae39ff89bbfd00b843ce",
+        "span_id": "e43a5dd61dd42ce3",
+        "start_time": "2026-11-25T12:56:07.163+00:00",
+        "end_time": "2026-11-25T12:56:07.163063084+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "No booking found for Alice on Tuesday 14:00",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "3e851a3cfbfd6672c6bc180787dd9975",
+        "span_id": "dcb5ce47fc6fd840",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164048875+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": true,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.reason"
+              },
+              "message": "Conditionally required attribute 'done_gate.reason' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "916b339421c53627482357f1e2d16516",
+        "span_id": "f8005572a366c1b9",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164026084+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "No booking found for Alice on Tuesday 14:00",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "ec9e0653fb8c4675e420fbe648daecae",
+        "span_id": "e896d8842d874e4f",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164069458+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "No booking found for Alice on Tuesday 14:00",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 0,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "not_done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "ea6cd23c7058b475fc463ecce48f2ed1",
+        "span_id": "5497bbf0a086d179",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164026333+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "The run already ended as not done: No booking found for Alice on Tuesday 14:00",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 0,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "not_done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "71e703e2caf1f01d5ac9cdc36bd83ff7",
+        "span_id": "35789e5bb58db4c8",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164017792+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "error",
+          "message": "The check failed: fetch failed"
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "The check failed: fetch failed",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "error.type",
+            "value": "TypeError",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "undefined_enum_variant",
+                  "context": {
+                    "attribute_key": "error.type",
+                    "attribute_value": "TypeError"
+                  },
+                  "message": "Enum attribute 'error.type' has value 'TypeError' which is not documented.",
+                  "level": "information",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "information"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [],
+          "highest_advice_level": null,
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "216181c0e68dd90ee0a6644ed57bf9a6",
+        "span_id": "81b16d6140fc6755",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.164105042+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "error",
+          "message": "The check timed out after 20 ms"
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "The check timed out after 20 ms",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "error.type",
+            "value": "timeout",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "undefined_enum_variant",
+                  "context": {
+                    "attribute_key": "error.type",
+                    "attribute_value": "timeout"
+                  },
+                  "message": "Enum attribute 'error.type' has value 'timeout' which is not documented.",
+                  "level": "information",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "information"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [],
+          "highest_advice_level": null,
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "921854e88f0e91f4495bc0a816c9a7a1",
+        "span_id": "01116c69e744c066",
+        "start_time": "2026-11-25T12:56:07.164+00:00",
+        "end_time": "2026-11-25T12:56:07.185259750+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide booking",
+        "kind": "internal",
+        "status": {
+          "code": "error",
+          "message": "The check returned an invalid result"
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "booking",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.claim.summary",
+            "value": "Booked the Tuesday 14:00 slot for Alice.",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.claim.summary",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "The check returned an invalid result",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "error.type",
+            "value": "invalid_result",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "undefined_enum_variant",
+                  "context": {
+                    "attribute_key": "error.type",
+                    "attribute_value": "invalid_result"
+                  },
+                  "message": "Enum attribute 'error.type' has value 'invalid_result' which is not documented.",
+                  "level": "information",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide booking"
+                }
+              ],
+              "highest_advice_level": "information"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [],
+          "highest_advice_level": null,
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "0d7e34c089d74ac94b38539f538e1f22",
+        "span_id": "8d5853a5e01006f7",
+        "start_time": "2026-11-25T12:56:07.186+00:00",
+        "end_time": "2026-11-25T12:56:07.186104542+00:00"
+      }
+    },
+    {
+      "span": {
+        "name": "done_gate.decide done",
+        "kind": "internal",
+        "status": {
+          "code": "unset",
+          "message": ""
+        },
+        "attributes": [
+          {
+            "name": "done_gate.name",
+            "value": "done",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.name",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.name' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.accepted",
+            "value": false,
+            "type": "boolean",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.accepted",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.accepted' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.reason",
+            "value": "No booking found for Alice on Tuesday 14:00",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.reason",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.reason' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusal.count",
+            "value": 1,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusal.count",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusal.count' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.refusals_left",
+            "value": 2,
+            "type": "int",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.refusals_left",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.refusals_left' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          },
+          {
+            "name": "done_gate.outcome",
+            "value": "pending",
+            "type": "string",
+            "live_check_result": {
+              "all_advice": [
+                {
+                  "type": "PolicyFinding",
+                  "id": "not_stable",
+                  "context": {
+                    "attribute_key": "done_gate.outcome",
+                    "stability": "development"
+                  },
+                  "message": "Attribute 'done_gate.outcome' is not stable; stability = development.",
+                  "level": "improvement",
+                  "signal_type": "span",
+                  "signal_name": "done_gate.decide done"
+                }
+              ],
+              "highest_advice_level": "improvement"
+            }
+          }
+        ],
+        "span_events": [],
+        "span_links": [],
+        "live_check_result": {
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide done"
+            },
+            {
+              "type": "PolicyFinding",
+              "id": "conditionally_required_attribute_not_present",
+              "context": {
+                "attribute_key": "error.type"
+              },
+              "message": "Conditionally required attribute 'error.type' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide done"
+            }
+          ],
+          "highest_advice_level": "information",
+          "match_info": {
+            "signal": "done_gate.decide",
+            "signal_matcher": "match.done_gate.decide",
+            "entries": [
+              {
+                "matcher": "match.done_gate.decide",
+                "signal": "done_gate.decide"
+              }
+            ],
+            "unmatched": false,
+            "signal_expected": true
+          }
+        },
+        "trace_id": "917630229efa6e4106ace682bf927fae",
+        "span_id": "af6db76f2f28f5a7",
+        "start_time": "2026-11-25T12:56:07.186+00:00",
+        "end_time": "2026-11-25T12:56:07.186138250+00:00"
+      }
+    }
+  ],
+  "statistics": {
+    "total_entities": 90,
+    "total_entities_by_type": {
+      "attribute": 77,
+      "resource": 1,
+      "span": 11,
+      "instrumentation_scope": 1
+    },
+    "total_advisories": 89,
+    "advice_level_counts": {
+      "information": 15,
+      "improvement": 74
+    },
+    "highest_advice_level_counts": {
+      "information": 11,
+      "improvement": 74
+    },
+    "no_advice_count": 5,
+    "advice_type_counts": {
+      "conditionally_required_attribute_not_present": 11,
+      "unexpected_attribute": 1,
+      "undefined_enum_variant": 3,
+      "opt_in_attribute_not_present": 1,
+      "not_stable": 73
+    },
+    "advice_message_counts": {
+      "Attribute 'done_gate.claim.summary' is not stable; stability = development.": 10,
+      "Attribute 'done_gate.name' is not stable; stability = development.": 11,
+      "Conditionally required attribute 'error.type' is not present.": 8,
+      "Enum attribute 'error.type' has value 'TypeError' which is not documented.": 1,
+      "Attribute 'done_gate.refusal.count' is not stable; stability = development.": 11,
+      "Enum attribute 'error.type' has value 'timeout' which is not documented.": 1,
+      "Enum attribute 'error.type' has value 'invalid_result' which is not documented.": 1,
+      "Opt-in attribute 'done_gate.claim.summary' is not present.": 1,
+      "Attribute 'done_gate.reason' is not stable; stability = development.": 8,
+      "Attribute 'service.name' is not declared by this registry. It is defined in https://opentelemetry.io/schemas/1.45.0.": 1,
+      "Attribute 'done_gate.refusals_left' is not stable; stability = development.": 11,
+      "Attribute 'done_gate.outcome' is not stable; stability = development.": 11,
+      "Conditionally required attribute 'done_gate.reason' is not present.": 3,
+      "Attribute 'done_gate.accepted' is not stable; stability = development.": 11
+    },
+    "seen_registry_attributes": {
+      "done_gate.name": 11,
+      "done_gate.outcome": 11,
+      "done_gate.claim.summary": 10,
+      "done_gate.accepted": 11,
+      "done_gate.refusals_left": 11,
+      "done_gate.refusal.count": 11,
+      "done_gate.reason": 8
+    },
+    "seen_non_registry_attributes": {
+      "error.type": 3,
+      "service.name": 1
+    },
+    "seen_registry_metrics": {},
+    "seen_non_registry_metrics": {},
+    "seen_registry_events": {},
+    "seen_non_registry_events": {},
+    "registry_coverage": 1.0,
+    "matchers": [
+      {
+        "id": "match.done_gate.decide",
+        "matched": 11,
+        "errors": 0,
+        "first_error": null
+      }
+    ]
+  }
+}
