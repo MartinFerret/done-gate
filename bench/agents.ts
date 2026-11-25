@@ -52,6 +52,10 @@ export function aiSdkAgent(model: LanguageModel): AgentRunner {
       model,
       temperature: TEMPERATURE,
       instructions,
+      // gpt-oss on Groq: when its reasoning is sent back in the history, its next tool call can come
+      // out malformed ("done<|channel|>commentary") and Groq rejects it with a 400. Hiding the
+      // reasoning keeps it out of the history. Same setting with and without the gate.
+      providerOptions: { groq: { reasoningFormat: 'hidden' } },
       prompt: task,
       tools: {
         bookSlot: tool({
@@ -135,6 +139,10 @@ export function mastraAgent(model: MastraModel): AgentRunner {
     const result = await agent.generate(task, {
       maxSteps: MAX_STEPS,
       modelSettings: { temperature: TEMPERATURE },
+      // gpt-oss on Groq: when its reasoning is sent back in the history, its next tool call can come
+      // out malformed ("done<|channel|>commentary") and Groq rejects it with a 400. Hiding the
+      // reasoning keeps it out of the history. Same setting with and without the gate.
+      providerOptions: { groq: { reasoningFormat: 'hidden' } },
       stopWhen: gate ? mastraGateClosed(gate) : () => claimed,
     });
 

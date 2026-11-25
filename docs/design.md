@@ -58,6 +58,30 @@ result. The loop stops through a stop condition that reads `gate.outcome`.
 - If a tool throws, the SDK turns it into a tool error for the model and continues. `decide` never
   throws, so a failing check reaches the model as a normal refusal with a reason.
 
+### When the agent stops without calling "done"
+
+Seen in the first real runs with `openai/gpt-oss-20b`: after a refusal the agent fixed the booking,
+then answered in plain text instead of calling "done" again. The loop ended with the gate `pending`
+and a finished task was reported as not done.
+
+The remedy needs no new API. A closing answer is a claim, so the caller gives it to the gate once:
+
+```ts
+if (gate.outcome === 'pending' && result.text) await gate.decide(result.text);
+```
+
+The examples and the bench do this. If that check fails, the run stays not done: the loop is over
+and the agent cannot act on the reason.
+
+### A provider quirk met on the way
+
+With `openai/gpt-oss-20b` on Groq, when the model's reasoning is sent back in the history, its next
+tool call can come out malformed (`done<|channel|>commentary`) and Groq rejects the request with a
+400 (`tool_use_failed`). It was reproducible at temperature 0. The examples and the bench set
+`providerOptions.groq.reasoningFormat` to `hidden`, with and without the gate, which keeps the
+reasoning out of the history. This is not a done-gate concern, but anyone running the examples on
+another setup should know.
+
 ### Mastra (`@mastra/core@1.86.0`)
 
 - Loop: `agent.generate(messages, { stopWhen, maxSteps })`, tools made with `createTool`.

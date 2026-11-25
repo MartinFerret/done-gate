@@ -86,6 +86,7 @@ export function buildReport(tracesDir: string): string {
       ...(batch.variant === 'gate'
         ? [
             `- Runs with at least one refused "done": ${ids(refused)}`,
+            `- Ended with a text answer that the gate then checked: ${ids(runs.filter((r) => r.result.finalCheck))}`,
             `- Ended as not done (refusal budget used up): ${ids(runs.filter((r) => r.result.gateOutcome === 'not_done'))}`,
             `- Ended with the gate still pending (step limit, or the agent stopped without calling "done"): ${ids(runs.filter((r) => r.result.gateOutcome === 'pending'))}`,
           ]
@@ -103,8 +104,9 @@ export function buildReport(tracesDir: string): string {
     'One task ("Book the Tuesday 14:00 slot for Alice."), one model, one deterministic fault: the',
     'first booking is lost and the tool answers that it worked. Each row is one batch of runs.',
     '',
-    '- **Reported done**: the run ended as a success. Without a gate, the agent called "done".',
-    '  With done-gate, the gate accepted a "done".',
+    '- **Reported done**: the run ended as a success. Without a gate, the agent called "done" or',
+    '  stopped with a text answer. With done-gate, the gate accepted a claim: a "done" call, or the',
+    '  closing text answer, which is checked once when the agent stops without calling "done".',
     '- **Really done**: the booking exists in the system at the end of the run.',
     '- **False success**: reported done, and not really done.',
     '- **Refusals**: "done" claims the gate refused, over the whole batch.',

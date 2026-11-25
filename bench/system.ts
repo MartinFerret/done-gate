@@ -24,6 +24,7 @@ export function createBookingSystem(): BookingSystem {
       if (writes > 1) bookings.push(booking);
       return `Booked ${booking.day} ${booking.time} for ${booking.name}.`;
     },
-    list: () => bookings,
+    // A copy: what a caller was shown must not change when a later booking is stored.
+    list: () => [...bookings],
   };
 }

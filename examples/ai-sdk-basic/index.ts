@@ -62,12 +62,23 @@ async function run(withGate: boolean): Promise<void> {
   const result = await generateText({
     model: groq('openai/gpt-oss-20b'),
     temperature: 0,
+    // gpt-oss on Groq: when its reasoning is sent back in the history, its next tool call can come
+    // out malformed ("done<|channel|>commentary") and Groq rejects it with a 400. Hiding the
+    // reasoning keeps it out of the history. Same setting with and without the gate.
+    providerOptions: { groq: { reasoningFormat: 'hidden' } },
     instructions: INSTRUCTIONS,
     prompt: TASK,
     tools: { ...bookingTools(system), done: withGate ? doneTool(gate) : plainDone },
     stopWhen: [withGate ? gateClosed(gate) : hasToolCall('done'), isStepCount(MAX_STEPS)],
     telemetry: { functionId: withGate ? 'booking-agent-with-gate' : 'booking-agent-no-gate' },
   });
+
+  // The agent stopped with a text answer instead of calling "done". That answer is its claim:
+  // check it once, so a finished task is not left unverified.
+  let finalCheck = '';
+  if (withGate && gate.outcome === 'pending' && result.text) {
+    finalCheck = JSON.stringify(await gate.decide(result.text));
+  }
 
   for (const [i, step] of result.steps.entries()) {
     for (const call of step.toolCalls) {
@@ -84,6 +95,7 @@ async function run(withGate: boolean): Promise<void> {
     : result.steps.some((s) => s.toolCalls.some((c) => c.toolName === 'done'));
   console.log(`\nReported done:    ${saidDone ? 'yes' : 'no'}`);
   console.log(`Really booked:    ${reallyBooked(system) ? 'yes' : 'NO'}`);
+  if (finalCheck) console.log(`Final check:      the closing answer was checked: ${finalCheck}`);
   if (withGate) console.log(`Gate:             ${gate.outcome}, ${gate.refusals} refusal(s)`);
   console.log(`${result.steps.length} steps, ${result.totalUsage.totalTokens ?? 0} tokens`);
 }

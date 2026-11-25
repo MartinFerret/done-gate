@@ -4,7 +4,7 @@
 import { createHash } from 'node:crypto';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
-import { createDoneGate } from 'done-gate';
+import { createDoneGate, type Decision } from 'done-gate';
 import { type AgentRunner, MAX_STEPS, TEMPERATURE } from './agents.ts';
 import { type BookingSystem, createBookingSystem } from './system.ts';
 
@@ -22,12 +22,17 @@ export interface BatchOptions {
 }
 
 export interface RunResult {
-  /** The run was reported as done: the agent called "done" (no gate) or the gate accepted it. */
+  /**
+   * The run was reported as done. Without a gate: the agent called "done", or stopped with a
+   * text answer. With the gate: the gate accepted a claim.
+   */
   readonly saidDone: boolean;
   /** The booking exists in the system. */
   readonly reallyDone: boolean;
   /** "done" claims refused by the gate. Always 0 without a gate. */
   readonly refusals: number;
+  /** True when the agent ended with a text answer and the gate checked that answer. */
+  readonly finalCheck: boolean;
   /** The gate's outcome, or null without a gate. */
   readonly gateOutcome: string | null;
   readonly steps: number;
@@ -83,11 +88,25 @@ export async function runBatch(options: BatchOptions): Promise<void> {
     for (const [i, step] of outcome.steps.entries())
       lines.push({ type: 'step', step: i + 1, ...step });
 
-    const claimed = outcome.steps.some((step) => 'tool' in step && step.tool === 'done');
+    // The agent stopped with a text answer instead of calling "done". That answer is its claim:
+    // the gate checks it once, so a finished task is not left unverified.
+    const last = outcome.steps.at(-1);
+    let finalCheck: Decision | null = null;
+    if (gate?.outcome === 'pending' && last && 'text' in last) {
+      // oxlint-disable-next-line no-await-in-loop -- runs are sequential on purpose
+      finalCheck = await gate.decide(last.text);
+      lines.push({ type: 'final-check', claim: last.text, ...finalCheck });
+    }
+
+    // Without a gate, an agent that stops is taken at its word, whether it called "done" or not.
+    const claimed =
+      outcome.steps.some((step) => 'tool' in step && step.tool === 'done') ||
+      (last !== undefined && 'text' in last);
     const result: RunResult = {
       saidDone: gate ? gate.outcome === 'done' : claimed,
       reallyDone: reallyBooked(system),
       refusals: gate?.refusals ?? 0,
+      finalCheck: finalCheck !== null,
       gateOutcome: gate?.outcome ?? null,
       steps: outcome.steps.length,
       tokens: outcome.tokens,

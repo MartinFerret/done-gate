@@ -152,6 +152,28 @@ describe.each([
   });
 });
 
+test('an agent that fixes the booking and stops with a text answer is checked once at the end', async () => {
+  const out = join(dir, 'ai-sdk-gate');
+  const turns: Turn[] = [book, done, book, { text: 'Alice is booked on Tuesday at 14:00.' }];
+  await runBatch({
+    adapter: 'ai-sdk',
+    variant: 'gate',
+    model: 'scripted',
+    agent: scriptedAiSdk(turns),
+    runs: 1,
+    dir: out,
+  });
+
+  expect(readBatch(out)[0]?.result).toMatchObject({
+    saidDone: true,
+    reallyDone: true,
+    refusals: 1,
+    finalCheck: true,
+    gateOutcome: 'done',
+  });
+  expect(readFileSync(join(out, 'run-01.jsonl'), 'utf8')).toContain('"type":"final-check"');
+});
+
 test('a complete run is skipped, so a batch can be resumed', async () => {
   const out = join(dir, 'ai-sdk-gate');
   const options = { adapter: 'ai-sdk', variant: 'gate' as const, model: 'scripted', dir: out };
