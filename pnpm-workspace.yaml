@@ -3,3 +3,16 @@ packages:
   - examples/*
   - bench
   - conformance
+
+# Mastra's OpenTelemetry packages are built on the 2.x SDK line, which needs @opentelemetry/api
+# below 1.10, while the rest of this repo uses the 3.x SDK and api 1.10. Without these overrides
+# pnpm resolves Mastra's "^1.9.0" to 1.10.0 and reports unmet peers. The two copies cooperate:
+# the global tracer provider is registered with 1.10, which the 1.9 copy accepts.
+overrides:
+  "@mastra/otel-bridge>@opentelemetry/api": 1.9.1
+  "@mastra/observability>@opentelemetry/api": 1.9.1
+  "@mastra/otel-exporter>@opentelemetry/api": 1.9.1
+
+# protobufjs (a dependency of the OTLP gRPC exporter) has a postinstall script that is not needed.
+ignoredBuiltDependencies:
+  - protobufjs
