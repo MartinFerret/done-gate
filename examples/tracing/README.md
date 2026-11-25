@@ -6,11 +6,11 @@ accepted one, in a single trace.
 ```sh
 pnpm build                               # from the repo root, once
 cd examples/tracing
-pnpm up                                  # starts Arize Phoenix in Docker
+pnpm viewer                              # starts Arize Phoenix in Docker
 pnpm demo                                # one AI SDK run with done-gate, exported over OTLP/gRPC
 open http://localhost:6006               # project "default", latest trace
 pnpm screenshot                          # writes docs/trace.png (needs `npx playwright install chromium`)
-pnpm down
+pnpm viewer:stop
 ```
 
 `pnpm demo` needs `GROQ_API_KEY` in the repo's `.env`. For Mastra, run its example the same way:
@@ -30,5 +30,5 @@ a local demo does not need. Do not expose it.
 ## What is recorded
 
 Prompts, tool arguments and tool results are in the trace: the AI SDK and Mastra both record content
-by default, and so does the gate for the claim. See "Content" in [docs/design.md](../../docs/design.md)
-for how to turn each of them off.
+by default. The gate records its verdict and the reason of a refusal, and not the claim, unless
+`recordContent: true` is set. See "Content" in [docs/design.md](../../docs/design.md).
