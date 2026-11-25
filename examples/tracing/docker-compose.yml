@@ -1,0 +1,12 @@
+# A local trace viewer for the examples: Arize Phoenix, free and self-hosted.
+# UI: http://localhost:6006   OTLP over gRPC: localhost:4317
+# https://arize.com/docs/phoenix/self-hosting/deployment-options/docker
+services:
+  phoenix:
+    image: arizephoenix/phoenix:22.0.1
+    environment:
+      # Local demo only: no login, no API key.
+      PHOENIX_ENABLE_AUTH: "false"
+    ports:
+      - "6006:6006"
+      - "4317:4317"

@@ -1,0 +1,15 @@
+{
+  "name": "example-tracing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "demo": "OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317 pnpm --filter example-ai-sdk-basic start gate",
+    "screenshot": "node screenshot.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "playwright": "1.65.1"
+  }
+}
