@@ -4,10 +4,10 @@
 // Usage: pnpm start            (both)      pnpm start no-gate | gate
 // Needs GROQ_API_KEY in ../../.env (free key, see .env.example).
 import { groq } from '@ai-sdk/groq';
-import { doneTool, gateClosed } from '@martinferret/done-gate-ai-sdk';
+import { doneTool, gateClosed } from '@mferret/done-gate-ai-sdk';
 import { trace } from '@opentelemetry/api';
 import { generateText, hasToolCall, isStepCount, jsonSchema, tool } from 'ai';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { type Booking, type BookingSystem, createBookingSystem } from './system.ts';
 import { startTracing } from './tracing.ts';
 

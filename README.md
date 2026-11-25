@@ -43,8 +43,8 @@ This is the pattern measured earlier in [webmcp-harness](https://github.com/Mart
 
 ```ts
 import { generateText, isStepCount } from 'ai';
-import { createDoneGate } from '@martinferret/done-gate';
-import { doneTool, gateClosed } from '@martinferret/done-gate-ai-sdk';
+import { createDoneGate } from '@mferret/done-gate';
+import { doneTool, gateClosed } from '@mferret/done-gate-ai-sdk';
 
 const gate = createDoneGate({
   // Read the real system. Not the model's answer, not a tool's return value.
@@ -64,7 +64,7 @@ await generateText({
 if (gate.outcome !== 'done') throw new Error('The task was not completed');
 ```
 
-With Mastra, the same two functions come from `@martinferret/done-gate-mastra`:
+With Mastra, the same two functions come from `@mferret/done-gate-mastra`:
 
 ```ts
 const agent = new Agent({ id, name, instructions, model, tools: { ...tools, done: doneTool(gate) } });
@@ -80,9 +80,9 @@ const decision = await gate.decide(claim);
 
 | Package | What it is |
 |---|---|
-| `@martinferret/done-gate` | The gate. No runtime dependency. `@opentelemetry/api` is an optional peer. |
-| `@martinferret/done-gate-ai-sdk` | `doneTool` and `gateClosed` for the Vercel AI SDK 7. |
-| `@martinferret/done-gate-mastra` | `doneTool` and `gateClosed` for Mastra 1.x. |
+| `@mferret/done-gate` | The gate. No runtime dependency. `@opentelemetry/api` is an optional peer. |
+| `@mferret/done-gate-ai-sdk` | `doneTool` and `gateClosed` for the Vercel AI SDK 7. |
+| `@mferret/done-gate-mastra` | `doneTool` and `gateClosed` for Mastra 1.x. |
 
 Nothing is published to npm. To try it, clone the repo (see [Run it](#run-it)).
 

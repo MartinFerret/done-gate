@@ -3,11 +3,11 @@
 //   2. with done-gate: "done" is only accepted when the booking really exists
 // Usage: pnpm start            (both)      pnpm start no-gate | gate
 // Needs GROQ_API_KEY in ../../.env (free key, see .env.example).
-import { doneTool, gateClosed } from '@martinferret/done-gate-mastra';
+import { doneTool, gateClosed } from '@mferret/done-gate-mastra';
 import { Mastra } from '@mastra/core';
 import { Agent } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { z } from 'zod';
 import { type BookingSystem, createBookingSystem } from './system.ts';
 import { startTracing } from './tracing.ts';

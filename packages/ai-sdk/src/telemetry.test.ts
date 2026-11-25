@@ -8,7 +8,7 @@ import {
 } from '@opentelemetry/sdk-trace';
 import { generateText, isStepCount, registerTelemetry } from 'ai';
 import { MockLanguageModelV4 } from 'ai/test';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { afterAll, beforeAll, expect, test } from 'vitest';
 import { doneTool, gateClosed } from './index.ts';
 

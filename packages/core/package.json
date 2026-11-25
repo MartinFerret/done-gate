@@ -1,5 +1,5 @@
 {
-  "name": "@martinferret/done-gate",
+  "name": "@mferret/done-gate",
   "version": "0.0.0",
   "description": "Stops an AI agent from declaring \"done\" until a check against the real system passes.",
   "license": "MIT",

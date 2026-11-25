@@ -49,18 +49,18 @@ importers:
       '@ai-sdk/groq':
         specifier: 4.0.86
         version: 4.0.86(zod@4.6.7)
-      '@martinferret/done-gate':
-        specifier: workspace:*
-        version: link:../packages/core
-      '@martinferret/done-gate-ai-sdk':
-        specifier: workspace:*
-        version: link:../packages/ai-sdk
-      '@martinferret/done-gate-mastra':
-        specifier: workspace:*
-        version: link:../packages/mastra
       '@mastra/core':
         specifier: 1.86.0
         version: 1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7)
+      '@mferret/done-gate':
+        specifier: workspace:*
+        version: link:../packages/core
+      '@mferret/done-gate-ai-sdk':
+        specifier: workspace:*
+        version: link:../packages/ai-sdk
+      '@mferret/done-gate-mastra':
+        specifier: workspace:*
+        version: link:../packages/mastra
       ai:
         specifier: 7.0.181
         version: 7.0.181(zod@4.6.7)
@@ -70,7 +70,7 @@ importers:
 
   conformance:
     dependencies:
-      '@martinferret/done-gate':
+      '@mferret/done-gate':
         specifier: workspace:*
         version: link:../packages/core
       '@opentelemetry/api':
@@ -97,10 +97,10 @@ importers:
       '@ai-sdk/otel':
         specifier: 1.0.181
         version: 1.0.181(zod@4.6.7)
-      '@martinferret/done-gate':
+      '@mferret/done-gate':
         specifier: workspace:*
         version: link:../../packages/core
-      '@martinferret/done-gate-ai-sdk':
+      '@mferret/done-gate-ai-sdk':
         specifier: workspace:*
         version: link:../../packages/ai-sdk
       '@opentelemetry/api':
@@ -124,12 +124,6 @@ importers:
 
   examples/mastra-basic:
     dependencies:
-      '@martinferret/done-gate':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@martinferret/done-gate-mastra':
-        specifier: workspace:*
-        version: link:../../packages/mastra
       '@mastra/core':
         specifier: 1.86.0
         version: 1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7)
@@ -139,6 +133,12 @@ importers:
       '@mastra/otel-bridge':
         specifier: 1.6.2
         version: 1.6.2(@mastra/core@1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7))(zod@4.6.7)
+      '@mferret/done-gate':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@mferret/done-gate-mastra':
+        specifier: workspace:*
+        version: link:../../packages/mastra
       '@opentelemetry/api':
         specifier: 1.10.0
         version: 1.10.0
@@ -169,7 +169,7 @@ importers:
       '@ai-sdk/otel':
         specifier: 1.0.181
         version: 1.0.181(zod@4.6.7)
-      '@martinferret/done-gate':
+      '@mferret/done-gate':
         specifier: workspace:*
         version: link:../core
       '@opentelemetry/api':
@@ -199,9 +199,6 @@ importers:
 
   packages/mastra:
     devDependencies:
-      '@martinferret/done-gate':
-        specifier: workspace:*
-        version: link:../core
       '@mastra/core':
         specifier: 1.86.0
         version: 1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7)
@@ -211,6 +208,9 @@ importers:
       '@mastra/otel-bridge':
         specifier: 1.6.2
         version: 1.6.2(@mastra/core@1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7))(zod@4.6.7)
+      '@mferret/done-gate':
+        specifier: workspace:*
+        version: link:../core
       '@opentelemetry/api':
         specifier: 1.10.0
         version: 1.10.0

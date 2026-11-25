@@ -1,6 +1,6 @@
 import { Agent } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { expect, test } from 'vitest';
 import { z } from 'zod';
 import { doneTool, gateClosed } from './index.ts';

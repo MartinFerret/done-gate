@@ -9,7 +9,7 @@ import {
   SimpleSpanProcessor,
   TracerProvider,
 } from '@opentelemetry/sdk-trace';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { afterAll, beforeAll, expect, test } from 'vitest';
 import { doneTool, gateClosed } from './index.ts';
 import { scripted } from './scripted-model.ts';

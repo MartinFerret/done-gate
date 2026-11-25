@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@martinferret/done-gate-mastra": "workspace:*",
+    "@mferret/done-gate-mastra": "workspace:*",
     "@mastra/core": "1.86.0",
     "@mastra/observability": "1.24.3",
     "@mastra/otel-bridge": "1.6.2",
@@ -16,7 +16,7 @@
     "@opentelemetry/exporter-trace-otlp-grpc": "0.301.2",
     "@opentelemetry/resources": "3.1.1",
     "@opentelemetry/sdk-trace": "3.1.1",
-    "@martinferret/done-gate": "workspace:*",
+    "@mferret/done-gate": "workspace:*",
     "zod": "4.6.7"
   }
 }

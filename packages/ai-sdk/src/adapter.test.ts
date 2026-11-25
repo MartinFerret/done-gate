@@ -1,6 +1,6 @@
 import { generateText, hasToolCall, isStepCount, jsonSchema, tool } from 'ai';
 import { MockLanguageModelV4 } from 'ai/test';
-import { createDoneGate } from '@martinferret/done-gate';
+import { createDoneGate } from '@mferret/done-gate';
 import { expect, test } from 'vitest';
 import { doneTool, gateClosed } from './index.ts';
 

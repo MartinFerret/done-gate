@@ -4,15 +4,15 @@
 import {
   doneTool as aiSdkDoneTool,
   gateClosed as aiSdkGateClosed,
-} from '@martinferret/done-gate-ai-sdk';
+} from '@mferret/done-gate-ai-sdk';
 import {
   doneTool as mastraDoneTool,
   gateClosed as mastraGateClosed,
-} from '@martinferret/done-gate-mastra';
+} from '@mferret/done-gate-mastra';
 import { Agent } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
 import { generateText, hasToolCall, isStepCount, jsonSchema, type LanguageModel, tool } from 'ai';
-import type { DoneGate } from '@martinferret/done-gate';
+import type { DoneGate } from '@mferret/done-gate';
 import { z } from 'zod';
 import type { Booking, BookingSystem } from './system.ts';
 

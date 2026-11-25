@@ -238,10 +238,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "3a88b105a91846e2ae6d247b7f5846f0",
-        "span_id": "5ae76538e2d8c0d8",
-        "start_time": "2026-11-25T13:30:12.796+00:00",
-        "end_time": "2026-11-25T13:30:12.796670500+00:00"
+        "trace_id": "39adedab7a7787dd5388b220ebb88384",
+        "span_id": "417913a5ad3a68c5",
+        "start_time": "2026-11-25T15:08:10.060+00:00",
+        "end_time": "2026-11-25T15:08:10.060633667+00:00"
       }
     },
     {
@@ -427,10 +427,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "3438d8a62cc1f3b7eaef07e4db9fde3b",
-        "span_id": "a4073ceac3610630",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798077792+00:00"
+        "trace_id": "790c882a6a3de4f3bf2e9358c3a35c2d",
+        "span_id": "0687077d6a9bc30f",
+        "start_time": "2026-11-25T15:08:10.061+00:00",
+        "end_time": "2026-11-25T15:08:10.061075708+00:00"
       }
     },
     {
@@ -627,10 +627,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "ff764a4c11df712e4301f75b55c8a60e",
-        "span_id": "a0d5c723798b3605",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798057666+00:00"
+        "trace_id": "be159f53ebfcf50bcca59f3264263486",
+        "span_id": "c7872d76d030d5a8",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062049250+00:00"
       }
     },
     {
@@ -816,10 +816,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "8a3480fe5021e9d3243a8ffc4972587a",
-        "span_id": "c6acb5a033852141",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798029459+00:00"
+        "trace_id": "638e6bc74e5cead65b8a58ecad496371",
+        "span_id": "c6b710dc46c97dc8",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062028416+00:00"
       }
     },
     {
@@ -1005,10 +1005,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "6eb35ef1afd03cfdf3e39665ba8821cd",
-        "span_id": "a9f66989bfcba6be",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798083167+00:00"
+        "trace_id": "68f56331eb5d5add8dff7e1cfbfc073a",
+        "span_id": "1d334dd7ed1beeba",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062086250+00:00"
       }
     },
     {
@@ -1194,10 +1194,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "45b79db397907240c8797434c803312f",
-        "span_id": "6e1eaa4ef2771c4d",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798028458+00:00"
+        "trace_id": "bffc68c052ca34b3248f1f939ebf03d1",
+        "span_id": "6b46923ab4a59e48",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062028209+00:00"
       }
     },
     {
@@ -1383,10 +1383,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "b169ce4fe9f33dd37ac83844c6822cab",
-        "span_id": "27b20c4fb12d76bd",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798017458+00:00"
+        "trace_id": "79aea1b4c58fadbbe76504b612b22460",
+        "span_id": "c26ed8f06192fa7a",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062016042+00:00"
       }
     },
     {
@@ -1583,10 +1583,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "ed100dda9f0ba536cb24c572e47b7560",
-        "span_id": "e94736aae92a018d",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.798131500+00:00"
+        "trace_id": "59e302b063e26bdeeb7713a25ca2e1a8",
+        "span_id": "d4edda42d5117426",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.062106042+00:00"
       }
     },
     {
@@ -1783,10 +1783,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "58070b53e3ad4b51c370daf1fe2a79bd",
-        "span_id": "e2bbc39b1321fe2b",
-        "start_time": "2026-11-25T13:30:12.798+00:00",
-        "end_time": "2026-11-25T13:30:12.819225666+00:00"
+        "trace_id": "9ab3b3a7c5ff2b2efed04143b81aa506",
+        "span_id": "8122f26dc879ac2b",
+        "start_time": "2026-11-25T15:08:10.062+00:00",
+        "end_time": "2026-11-25T15:08:10.083422667+00:00"
       }
     },
     {
@@ -1983,10 +1983,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "568740409b56b51b65989f50d2294859",
-        "span_id": "3694ba174001b111",
-        "start_time": "2026-11-25T13:30:12.820+00:00",
-        "end_time": "2026-11-25T13:30:12.820136750+00:00"
+        "trace_id": "c2ba10fcc967df5e5cace8aeecba4ef2",
+        "span_id": "1813f4bda499f009",
+        "start_time": "2026-11-25T15:08:10.084+00:00",
+        "end_time": "2026-11-25T15:08:10.084116583+00:00"
       }
     },
     {
@@ -2172,25 +2172,25 @@
             "signal_expected": true
           }
         },
-        "trace_id": "03490821175d8c6337b70e8ff5757feb",
-        "span_id": "36780d0325cd7583",
-        "start_time": "2026-11-25T13:30:12.820+00:00",
-        "end_time": "2026-11-25T13:30:12.820140750+00:00"
+        "trace_id": "51789d87fcc54e9837857572eb9214f4",
+        "span_id": "73753d86e188c8fc",
+        "start_time": "2026-11-25T15:08:10.084+00:00",
+        "end_time": "2026-11-25T15:08:10.084139291+00:00"
       }
     }
   ],
   "statistics": {
     "total_entities": 84,
     "total_entities_by_type": {
-      "instrumentation_scope": 1,
       "resource": 1,
+      "instrumentation_scope": 1,
       "attribute": 71,
       "span": 11
     },
     "total_advisories": 89,
     "advice_level_counts": {
-      "improvement": 68,
-      "information": 21
+      "information": 21,
+      "improvement": 68
     },
     "highest_advice_level_counts": {
       "improvement": 68,
@@ -2200,38 +2200,38 @@
     "advice_type_counts": {
       "unexpected_attribute": 1,
       "not_stable": 67,
+      "opt_in_attribute_not_present": 7,
       "undefined_enum_variant": 3,
-      "conditionally_required_attribute_not_present": 11,
-      "opt_in_attribute_not_present": 7
+      "conditionally_required_attribute_not_present": 11
     },
     "advice_message_counts": {
+      "Attribute 'service.name' is not declared by this registry. It is defined in https://opentelemetry.io/schemas/1.45.0.": 1,
+      "Conditionally required attribute 'done_gate.reason' is not present.": 3,
+      "Attribute 'done_gate.outcome' is not stable; stability = development.": 11,
+      "Attribute 'done_gate.refusals_left' is not stable; stability = development.": 11,
       "Enum attribute 'error.type' has value 'TypeError' which is not documented.": 1,
+      "Attribute 'done_gate.claim.summary' is not stable; stability = development.": 4,
       "Opt-in attribute 'done_gate.claim.summary' is not present.": 7,
+      "Attribute 'done_gate.reason' is not stable; stability = development.": 8,
       "Enum attribute 'error.type' has value 'timeout' which is not documented.": 1,
       "Enum attribute 'error.type' has value 'invalid_result' which is not documented.": 1,
-      "Conditionally required attribute 'done_gate.reason' is not present.": 3,
-      "Attribute 'done_gate.refusal.count' is not stable; stability = development.": 11,
-      "Attribute 'service.name' is not declared by this registry. It is defined in https://opentelemetry.io/schemas/1.45.0.": 1,
+      "Conditionally required attribute 'error.type' is not present.": 8,
       "Attribute 'done_gate.name' is not stable; stability = development.": 11,
-      "Attribute 'done_gate.claim.summary' is not stable; stability = development.": 4,
       "Attribute 'done_gate.accepted' is not stable; stability = development.": 11,
-      "Attribute 'done_gate.refusals_left' is not stable; stability = development.": 11,
-      "Attribute 'done_gate.outcome' is not stable; stability = development.": 11,
-      "Attribute 'done_gate.reason' is not stable; stability = development.": 8,
-      "Conditionally required attribute 'error.type' is not present.": 8
+      "Attribute 'done_gate.refusal.count' is not stable; stability = development.": 11
     },
     "seen_registry_attributes": {
-      "done_gate.accepted": 11,
       "done_gate.reason": 8,
-      "done_gate.refusal.count": 11,
-      "done_gate.name": 11,
       "done_gate.claim.summary": 4,
+      "done_gate.accepted": 11,
+      "done_gate.name": 11,
+      "done_gate.outcome": 11,
       "done_gate.refusals_left": 11,
-      "done_gate.outcome": 11
+      "done_gate.refusal.count": 11
     },
     "seen_non_registry_attributes": {
-      "error.type": 3,
-      "service.name": 1
+      "service.name": 1,
+      "error.type": 3
     },
     "seen_registry_metrics": {},
     "seen_non_registry_metrics": {},

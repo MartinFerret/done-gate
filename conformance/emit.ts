@@ -7,7 +7,7 @@ import { AsyncLocalStorageContextManager } from '@opentelemetry/context-async-ho
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
 import { resourceFromAttributes } from '@opentelemetry/resources';
 import { BatchSpanProcessor, TracerProvider } from '@opentelemetry/sdk-trace';
-import { type Check, createDoneGate } from '@martinferret/done-gate';
+import { type Check, createDoneGate } from '@mferret/done-gate';
 
 const url = process.env['OTEL_EXPORTER_OTLP_ENDPOINT'] ?? 'http://localhost:4317';
 const provider = new TracerProvider({
