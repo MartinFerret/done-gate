@@ -3,7 +3,7 @@
 // Tools: https://ai-sdk.dev/docs/ai-sdk-core/tools-and-tool-calling
 // Stop conditions: https://ai-sdk.dev/docs/agents/loop-control
 import { jsonSchema, type Tool, tool } from 'ai';
-import type { Decision, DoneGate } from 'done-gate';
+import type { Decision, DoneGate } from '@martinferret/done-gate';
 
 export interface DoneToolInput {
   /** What the agent says it did. */

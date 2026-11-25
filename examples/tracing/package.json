@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "up": "docker compose up -d",
-    "down": "docker compose down",
+    "viewer": "docker compose up -d",
+    "viewer:stop": "docker compose down",
     "demo": "OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317 pnpm --filter example-ai-sdk-basic start gate",
     "screenshot": "node screenshot.ts",
     "typecheck": "tsc --noEmit"

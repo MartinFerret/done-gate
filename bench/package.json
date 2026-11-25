@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "@ai-sdk/groq": "4.0.86",
-    "@done-gate/ai-sdk": "workspace:*",
-    "@done-gate/mastra": "workspace:*",
+    "@martinferret/done-gate-ai-sdk": "workspace:*",
+    "@martinferret/done-gate-mastra": "workspace:*",
     "@mastra/core": "1.86.0",
     "ai": "7.0.181",
-    "done-gate": "workspace:*",
+    "@martinferret/done-gate": "workspace:*",
     "zod": "4.6.7"
   }
 }

@@ -12,7 +12,7 @@ What happens:
 
 1. Weaver `v0.28.0` (image pinned by digest in `run.sh`) starts and listens for OTLP over gRPC.
 2. `emit.ts` runs every case of the gate with scripted checks (accepted, refused, budget used up,
-   check that throws, times out or returns something invalid, content recording off) and exports
+   check that throws, times out or returns something invalid, with and without the claim recorded) and exports
    the spans. No model is called.
 3. Weaver checks each span and attribute against `registry/`, writes `report/live_check.json`, and
    `summarize.ts` writes `report/summary.md`.

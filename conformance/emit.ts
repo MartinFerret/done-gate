@@ -7,7 +7,7 @@ import { AsyncLocalStorageContextManager } from '@opentelemetry/context-async-ho
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
 import { resourceFromAttributes } from '@opentelemetry/resources';
 import { BatchSpanProcessor, TracerProvider } from '@opentelemetry/sdk-trace';
-import { type Check, createDoneGate } from 'done-gate';
+import { type Check, createDoneGate } from '@martinferret/done-gate';
 
 const url = process.env['OTEL_EXPORTER_OTLP_ENDPOINT'] ?? 'http://localhost:4317';
 const provider = new TracerProvider({
@@ -21,14 +21,19 @@ const pass: Check = () => ({ ok: true });
 const refuse: Check = () => ({ ok: false, reason: 'No booking found for Alice on Tuesday 14:00' });
 const claim = 'Booked the Tuesday 14:00 slot for Alice.';
 
+// Cases 1 and 2 opt in to recording the claim, the others use the default (not recorded).
 // 1. Accepted on the first claim, then asked again after the gate closed.
-const accepted = createDoneGate({ name: 'booking', check: pass });
+const accepted = createDoneGate({ name: 'booking', check: pass, recordContent: true });
 await accepted.decide(claim);
 await accepted.decide(claim);
 
 // 2. Refused, then accepted.
 const answers = [refuse, pass];
-const retried = createDoneGate({ name: 'booking', check: (c) => (answers.shift() ?? pass)(c) });
+const retried = createDoneGate({
+  name: 'booking',
+  check: (c) => (answers.shift() ?? pass)(c),
+  recordContent: true,
+});
 await retried.decide(claim);
 await retried.decide(claim);
 
@@ -56,8 +61,8 @@ await hanging.decide(claim);
 const invalid = createDoneGate({ name: 'booking', check: (() => 'yes') as unknown as Check });
 await invalid.decide(claim);
 
-// 5. Content recording turned off, default gate name.
-const quiet = createDoneGate({ check: refuse, recordContent: false });
+// 5. Defaults: no claim recorded, default gate name.
+const quiet = createDoneGate({ check: refuse });
 await quiet.decide(claim);
 
 await provider.shutdown();

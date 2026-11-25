@@ -134,7 +134,7 @@ So the gate uses its own namespace, declared in a small registry extension (`con
 | `done_gate.refusal.count` | refusals so far in this run, this one included |
 | `done_gate.refusals_left` | remaining budget |
 | `done_gate.outcome` | `pending`, `done` or `not_done` after this decision |
-| `done_gate.claim.summary` | what the agent claimed (content, can be turned off) |
+| `done_gate.claim.summary` | what the agent claimed (content, opt-in) |
 | `error.type` | set when the check could not answer: `timeout`, `invalid_result` or the name of the thrown error; this one is a stable core attribute |
 
 The span status stays unset on a refusal: a refusal is the gate working. It is set to error only
@@ -153,11 +153,16 @@ Nothing is put under `gen_ai.`: that namespace belongs to the conventions.
 
 ### Content
 
-`done_gate.claim.summary` and `done_gate.reason` can contain model output and application data. Both
-are recorded by default, like the frameworks do (`recordInputs` and `recordOutputs` default to true
-in AI SDK 7; Mastra records prompts and tool results by default). `recordContent: false` drops the
-claim. The reason is kept: it comes from the user's own check, and a refusal with no reason is not
-useful in a trace.
+`done_gate.claim.summary` is model output. It is **not recorded by default**: `recordContent: true`
+turns it on. This follows the GenAI conventions, where content attributes (messages, tool arguments
+and results) are opt-in.
+
+The frameworks do the opposite: `recordInputs` and `recordOutputs` default to true in AI SDK 7, and
+Mastra records prompts and tool results by default. So in a trace made with their defaults the
+claim is already visible, as the arguments of the `execute_tool done` span.
+
+`done_gate.reason` is always recorded. It is written by the application's own check, not by the
+model, and a refusal with no reason is of no use in a trace. A check should not put secrets in it.
 
 ## What is not supported, and why
 

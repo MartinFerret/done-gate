@@ -1,12 +1,18 @@
 // The two agents of the experiment: the same task, tools, prompt and model, once through the
 // Vercel AI SDK and once through Mastra. Each can run with done-gate or without it.
 // Without the gate, "done" is a plain tool and the run stops as soon as it is called.
-import { doneTool as aiSdkDoneTool, gateClosed as aiSdkGateClosed } from '@done-gate/ai-sdk';
-import { doneTool as mastraDoneTool, gateClosed as mastraGateClosed } from '@done-gate/mastra';
+import {
+  doneTool as aiSdkDoneTool,
+  gateClosed as aiSdkGateClosed,
+} from '@martinferret/done-gate-ai-sdk';
+import {
+  doneTool as mastraDoneTool,
+  gateClosed as mastraGateClosed,
+} from '@martinferret/done-gate-mastra';
 import { Agent } from '@mastra/core/agent';
 import { createTool } from '@mastra/core/tools';
 import { generateText, hasToolCall, isStepCount, jsonSchema, type LanguageModel, tool } from 'ai';
-import type { DoneGate } from 'done-gate';
+import type { DoneGate } from '@martinferret/done-gate';
 import { z } from 'zod';
 import type { Booking, BookingSystem } from './system.ts';
 

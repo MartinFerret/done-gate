@@ -4,7 +4,7 @@
 import { createHash } from 'node:crypto';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
-import { createDoneGate, type Decision } from 'done-gate';
+import { createDoneGate, type Decision } from '@martinferret/done-gate';
 import { type AgentRunner, MAX_STEPS, TEMPERATURE } from './agents.ts';
 import { type BookingSystem, createBookingSystem } from './system.ts';
 

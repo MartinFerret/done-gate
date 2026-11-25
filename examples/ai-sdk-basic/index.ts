@@ -4,9 +4,10 @@
 // Usage: pnpm start            (both)      pnpm start no-gate | gate
 // Needs GROQ_API_KEY in ../../.env (free key, see .env.example).
 import { groq } from '@ai-sdk/groq';
-import { doneTool, gateClosed } from '@done-gate/ai-sdk';
+import { doneTool, gateClosed } from '@martinferret/done-gate-ai-sdk';
+import { trace } from '@opentelemetry/api';
 import { generateText, hasToolCall, isStepCount, jsonSchema, tool } from 'ai';
-import { createDoneGate } from 'done-gate';
+import { createDoneGate } from '@martinferret/done-gate';
 import { type Booking, type BookingSystem, createBookingSystem } from './system.ts';
 import { startTracing } from './tracing.ts';
 
@@ -100,8 +101,19 @@ async function run(withGate: boolean): Promise<void> {
   console.log(`${result.steps.length} steps, ${result.totalUsage.totalTokens ?? 0} tokens`);
 }
 
+/** One span around the whole run, so the final check lands in the same trace as the agent. */
+function traced(name: string, fn: () => Promise<void>): Promise<void> {
+  return trace.getTracer('example-ai-sdk-basic').startActiveSpan(name, async (span) => {
+    try {
+      await fn();
+    } finally {
+      span.end();
+    }
+  });
+}
+
 const flush = startTracing('example-ai-sdk-basic');
 const mode = process.argv[2] ?? 'both';
-if (mode !== 'gate') await run(false);
-if (mode !== 'no-gate') await run(true);
+if (mode !== 'gate') await traced('booking task, no gate', () => run(false));
+if (mode !== 'no-gate') await traced('booking task, with done-gate', () => run(true));
 await flush();

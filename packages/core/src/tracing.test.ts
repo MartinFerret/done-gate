@@ -38,8 +38,12 @@ const byName = (name: string): ReadableSpan => {
   return span;
 };
 
-test('an accepted claim is one internal span with the verdict', async () => {
-  const gate = createDoneGate({ name: 'booking', check: () => ({ ok: true }) });
+test('an accepted claim is one internal span with the verdict, and the claim when asked for', async () => {
+  const gate = createDoneGate({
+    name: 'booking',
+    recordContent: true,
+    check: () => ({ ok: true }),
+  });
 
   await gate.decide('Booked Tuesday 14:00 for Alice');
 
@@ -68,7 +72,6 @@ test('a refused claim carries the reason and the refusal count, and is not an er
   expect(span.status.code).toBe(SpanStatusCode.UNSET);
   expect(span.attributes).toEqual({
     'done_gate.name': 'done',
-    'done_gate.claim.summary': 'booked',
     'done_gate.accepted': false,
     'done_gate.reason': 'No booking found',
     'done_gate.refusal.count': 1,
@@ -119,8 +122,8 @@ test('a check that times out has error.type "timeout"', async () => {
   expect(onlySpan().status.code).toBe(SpanStatusCode.ERROR);
 });
 
-test('recordContent: false leaves the claim out', async () => {
-  const gate = createDoneGate({ recordContent: false, check: () => ({ ok: true }) });
+test('the claim is not recorded by default', async () => {
+  const gate = createDoneGate({ check: () => ({ ok: true }) });
 
   await gate.decide('Booked Tuesday 14:00 for Alice');
 

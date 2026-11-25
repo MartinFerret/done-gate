@@ -1,5 +1,5 @@
 {
-  "name": "@done-gate/ai-sdk",
+  "name": "@martinferret/done-gate-ai-sdk",
   "version": "0.0.0",
   "description": "done-gate for the Vercel AI SDK: a \"done\" tool the agent cannot pass until the check does.",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "peerDependencies": {
     "ai": "^7.0.0",
-    "done-gate": "workspace:^"
+    "@martinferret/done-gate": "workspace:^"
   },
   "devDependencies": {
     "@ai-sdk/otel": "1.0.181",
@@ -49,6 +49,6 @@
     "@opentelemetry/context-async-hooks": "3.1.1",
     "@opentelemetry/sdk-trace": "3.1.1",
     "ai": "7.0.181",
-    "done-gate": "workspace:*"
+    "@martinferret/done-gate": "workspace:*"
   }
 }

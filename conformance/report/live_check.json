@@ -238,10 +238,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "97bbdbadd5368b85875b7f8b8832e3b4",
-        "span_id": "c146299b8054423f",
-        "start_time": "2026-11-25T12:56:07.162+00:00",
-        "end_time": "2026-11-25T12:56:07.162534375+00:00"
+        "trace_id": "3a88b105a91846e2ae6d247b7f5846f0",
+        "span_id": "5ae76538e2d8c0d8",
+        "start_time": "2026-11-25T13:30:12.796+00:00",
+        "end_time": "2026-11-25T13:30:12.796670500+00:00"
       }
     },
     {
@@ -427,10 +427,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "1909dbc11844ae39ff89bbfd00b843ce",
-        "span_id": "e43a5dd61dd42ce3",
-        "start_time": "2026-11-25T12:56:07.163+00:00",
-        "end_time": "2026-11-25T12:56:07.163063084+00:00"
+        "trace_id": "3438d8a62cc1f3b7eaef07e4db9fde3b",
+        "span_id": "a4073ceac3610630",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798077792+00:00"
       }
     },
     {
@@ -627,10 +627,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "3e851a3cfbfd6672c6bc180787dd9975",
-        "span_id": "dcb5ce47fc6fd840",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164048875+00:00"
+        "trace_id": "ff764a4c11df712e4301f75b55c8a60e",
+        "span_id": "a0d5c723798b3605",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798057666+00:00"
       }
     },
     {
@@ -816,10 +816,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "916b339421c53627482357f1e2d16516",
-        "span_id": "f8005572a366c1b9",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164026084+00:00"
+        "trace_id": "8a3480fe5021e9d3243a8ffc4972587a",
+        "span_id": "c6acb5a033852141",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798029459+00:00"
       }
     },
     {
@@ -845,28 +845,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -992,6 +970,17 @@
           "all_advice": [
             {
               "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
               "id": "conditionally_required_attribute_not_present",
               "context": {
                 "attribute_key": "error.type"
@@ -1016,10 +1005,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "ec9e0653fb8c4675e420fbe648daecae",
-        "span_id": "e896d8842d874e4f",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164069458+00:00"
+        "trace_id": "6eb35ef1afd03cfdf3e39665ba8821cd",
+        "span_id": "a9f66989bfcba6be",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798083167+00:00"
       }
     },
     {
@@ -1045,28 +1034,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -1192,6 +1159,17 @@
           "all_advice": [
             {
               "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
               "id": "conditionally_required_attribute_not_present",
               "context": {
                 "attribute_key": "error.type"
@@ -1216,10 +1194,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "ea6cd23c7058b475fc463ecce48f2ed1",
-        "span_id": "5497bbf0a086d179",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164026333+00:00"
+        "trace_id": "45b79db397907240c8797434c803312f",
+        "span_id": "6e1eaa4ef2771c4d",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798028458+00:00"
       }
     },
     {
@@ -1245,28 +1223,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -1392,6 +1348,17 @@
           "all_advice": [
             {
               "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            },
+            {
+              "type": "PolicyFinding",
               "id": "conditionally_required_attribute_not_present",
               "context": {
                 "attribute_key": "error.type"
@@ -1416,10 +1383,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "71e703e2caf1f01d5ac9cdc36bd83ff7",
-        "span_id": "35789e5bb58db4c8",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164017792+00:00"
+        "trace_id": "b169ce4fe9f33dd37ac83844c6822cab",
+        "span_id": "27b20c4fb12d76bd",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798017458+00:00"
       }
     },
     {
@@ -1445,28 +1412,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -1611,8 +1556,20 @@
         "span_events": [],
         "span_links": [],
         "live_check_result": {
-          "all_advice": [],
-          "highest_advice_level": null,
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
           "match_info": {
             "signal": "done_gate.decide",
             "signal_matcher": "match.done_gate.decide",
@@ -1626,10 +1583,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "216181c0e68dd90ee0a6644ed57bf9a6",
-        "span_id": "81b16d6140fc6755",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.164105042+00:00"
+        "trace_id": "ed100dda9f0ba536cb24c572e47b7560",
+        "span_id": "e94736aae92a018d",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.798131500+00:00"
       }
     },
     {
@@ -1655,28 +1612,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -1821,8 +1756,20 @@
         "span_events": [],
         "span_links": [],
         "live_check_result": {
-          "all_advice": [],
-          "highest_advice_level": null,
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
           "match_info": {
             "signal": "done_gate.decide",
             "signal_matcher": "match.done_gate.decide",
@@ -1836,10 +1783,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "921854e88f0e91f4495bc0a816c9a7a1",
-        "span_id": "01116c69e744c066",
-        "start_time": "2026-11-25T12:56:07.164+00:00",
-        "end_time": "2026-11-25T12:56:07.185259750+00:00"
+        "trace_id": "58070b53e3ad4b51c370daf1fe2a79bd",
+        "span_id": "e2bbc39b1321fe2b",
+        "start_time": "2026-11-25T13:30:12.798+00:00",
+        "end_time": "2026-11-25T13:30:12.819225666+00:00"
       }
     },
     {
@@ -1865,28 +1812,6 @@
                     "stability": "development"
                   },
                   "message": "Attribute 'done_gate.name' is not stable; stability = development.",
-                  "level": "improvement",
-                  "signal_type": "span",
-                  "signal_name": "done_gate.decide booking"
-                }
-              ],
-              "highest_advice_level": "improvement"
-            }
-          },
-          {
-            "name": "done_gate.claim.summary",
-            "value": "Booked the Tuesday 14:00 slot for Alice.",
-            "type": "string",
-            "live_check_result": {
-              "all_advice": [
-                {
-                  "type": "PolicyFinding",
-                  "id": "not_stable",
-                  "context": {
-                    "attribute_key": "done_gate.claim.summary",
-                    "stability": "development"
-                  },
-                  "message": "Attribute 'done_gate.claim.summary' is not stable; stability = development.",
                   "level": "improvement",
                   "signal_type": "span",
                   "signal_name": "done_gate.decide booking"
@@ -2031,8 +1956,20 @@
         "span_events": [],
         "span_links": [],
         "live_check_result": {
-          "all_advice": [],
-          "highest_advice_level": null,
+          "all_advice": [
+            {
+              "type": "PolicyFinding",
+              "id": "opt_in_attribute_not_present",
+              "context": {
+                "attribute_key": "done_gate.claim.summary"
+              },
+              "message": "Opt-in attribute 'done_gate.claim.summary' is not present.",
+              "level": "information",
+              "signal_type": "span",
+              "signal_name": "done_gate.decide booking"
+            }
+          ],
+          "highest_advice_level": "information",
           "match_info": {
             "signal": "done_gate.decide",
             "signal_matcher": "match.done_gate.decide",
@@ -2046,10 +1983,10 @@
             "signal_expected": true
           }
         },
-        "trace_id": "0d7e34c089d74ac94b38539f538e1f22",
-        "span_id": "8d5853a5e01006f7",
-        "start_time": "2026-11-25T12:56:07.186+00:00",
-        "end_time": "2026-11-25T12:56:07.186104542+00:00"
+        "trace_id": "568740409b56b51b65989f50d2294859",
+        "span_id": "3694ba174001b111",
+        "start_time": "2026-11-25T13:30:12.820+00:00",
+        "end_time": "2026-11-25T13:30:12.820136750+00:00"
       }
     },
     {
@@ -2235,62 +2172,62 @@
             "signal_expected": true
           }
         },
-        "trace_id": "917630229efa6e4106ace682bf927fae",
-        "span_id": "af6db76f2f28f5a7",
-        "start_time": "2026-11-25T12:56:07.186+00:00",
-        "end_time": "2026-11-25T12:56:07.186138250+00:00"
+        "trace_id": "03490821175d8c6337b70e8ff5757feb",
+        "span_id": "36780d0325cd7583",
+        "start_time": "2026-11-25T13:30:12.820+00:00",
+        "end_time": "2026-11-25T13:30:12.820140750+00:00"
       }
     }
   ],
   "statistics": {
-    "total_entities": 90,
+    "total_entities": 84,
     "total_entities_by_type": {
-      "attribute": 77,
+      "instrumentation_scope": 1,
       "resource": 1,
-      "span": 11,
-      "instrumentation_scope": 1
+      "attribute": 71,
+      "span": 11
     },
     "total_advisories": 89,
     "advice_level_counts": {
-      "information": 15,
-      "improvement": 74
+      "improvement": 68,
+      "information": 21
     },
     "highest_advice_level_counts": {
-      "information": 11,
-      "improvement": 74
+      "improvement": 68,
+      "information": 14
     },
-    "no_advice_count": 5,
+    "no_advice_count": 2,
     "advice_type_counts": {
-      "conditionally_required_attribute_not_present": 11,
       "unexpected_attribute": 1,
+      "not_stable": 67,
       "undefined_enum_variant": 3,
-      "opt_in_attribute_not_present": 1,
-      "not_stable": 73
+      "conditionally_required_attribute_not_present": 11,
+      "opt_in_attribute_not_present": 7
     },
     "advice_message_counts": {
-      "Attribute 'done_gate.claim.summary' is not stable; stability = development.": 10,
-      "Attribute 'done_gate.name' is not stable; stability = development.": 11,
-      "Conditionally required attribute 'error.type' is not present.": 8,
       "Enum attribute 'error.type' has value 'TypeError' which is not documented.": 1,
-      "Attribute 'done_gate.refusal.count' is not stable; stability = development.": 11,
+      "Opt-in attribute 'done_gate.claim.summary' is not present.": 7,
       "Enum attribute 'error.type' has value 'timeout' which is not documented.": 1,
       "Enum attribute 'error.type' has value 'invalid_result' which is not documented.": 1,
-      "Opt-in attribute 'done_gate.claim.summary' is not present.": 1,
-      "Attribute 'done_gate.reason' is not stable; stability = development.": 8,
+      "Conditionally required attribute 'done_gate.reason' is not present.": 3,
+      "Attribute 'done_gate.refusal.count' is not stable; stability = development.": 11,
       "Attribute 'service.name' is not declared by this registry. It is defined in https://opentelemetry.io/schemas/1.45.0.": 1,
+      "Attribute 'done_gate.name' is not stable; stability = development.": 11,
+      "Attribute 'done_gate.claim.summary' is not stable; stability = development.": 4,
+      "Attribute 'done_gate.accepted' is not stable; stability = development.": 11,
       "Attribute 'done_gate.refusals_left' is not stable; stability = development.": 11,
       "Attribute 'done_gate.outcome' is not stable; stability = development.": 11,
-      "Conditionally required attribute 'done_gate.reason' is not present.": 3,
-      "Attribute 'done_gate.accepted' is not stable; stability = development.": 11
+      "Attribute 'done_gate.reason' is not stable; stability = development.": 8,
+      "Conditionally required attribute 'error.type' is not present.": 8
     },
     "seen_registry_attributes": {
-      "done_gate.name": 11,
-      "done_gate.outcome": 11,
-      "done_gate.claim.summary": 10,
       "done_gate.accepted": 11,
-      "done_gate.refusals_left": 11,
+      "done_gate.reason": 8,
       "done_gate.refusal.count": 11,
-      "done_gate.reason": 8
+      "done_gate.name": 11,
+      "done_gate.claim.summary": 4,
+      "done_gate.refusals_left": 11,
+      "done_gate.outcome": 11
     },
     "seen_non_registry_attributes": {
       "error.type": 3,

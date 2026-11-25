@@ -25,7 +25,10 @@ export interface DoneGateOptions {
   readonly timeoutMs?: number;
   /** Name of the gate in traces. Default "done". */
   readonly name?: string;
-  /** Record the claim in the decision span. Default true. */
+  /**
+   * Record the claim in the decision span. Default false: the claim is model output, and content
+   * capture is opt-in, as in the GenAI semantic conventions.
+   */
   readonly recordContent?: boolean;
 }
 
@@ -59,7 +62,7 @@ export function createDoneGate(options: DoneGateOptions): DoneGate {
     maxRefusals = DEFAULT_MAX_REFUSALS,
     timeoutMs = DEFAULT_TIMEOUT_MS,
     name = 'done',
-    recordContent = true,
+    recordContent = false,
   } = options;
   if (!Number.isInteger(maxRefusals) || maxRefusals < 1) {
     throw new TypeError(`maxRefusals must be a positive integer, got ${maxRefusals}`);

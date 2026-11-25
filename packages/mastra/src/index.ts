@@ -3,7 +3,7 @@
 // Tools: https://mastra.ai/reference/tools/create-tool
 // Stop conditions: https://mastra.ai/reference/agents/generate
 import { createTool, type Tool, type ToolExecutionContext } from '@mastra/core/tools';
-import type { Decision, DoneGate } from 'done-gate';
+import type { Decision, DoneGate } from '@martinferret/done-gate';
 import { z } from 'zod';
 
 export interface DoneToolInput {
