@@ -44,6 +44,30 @@ importers:
         specifier: 5.1.2
         version: 5.1.2(@opentelemetry/api@1.10.0)(@types/node@22.20.7)(vite@8.3.8(@types/node@22.20.7)(yaml@2.9.1))
 
+  bench:
+    dependencies:
+      '@ai-sdk/groq':
+        specifier: 4.0.86
+        version: 4.0.86(zod@4.6.7)
+      '@done-gate/ai-sdk':
+        specifier: workspace:*
+        version: link:../packages/ai-sdk
+      '@done-gate/mastra':
+        specifier: workspace:*
+        version: link:../packages/mastra
+      '@mastra/core':
+        specifier: 1.86.0
+        version: 1.86.0(@grpc/grpc-js@1.14.7)(@opentelemetry/api@1.10.0)(ai@7.0.181(zod@4.6.7))(zod@4.6.7)
+      ai:
+        specifier: 7.0.181
+        version: 7.0.181(zod@4.6.7)
+      done-gate:
+        specifier: workspace:*
+        version: link:../packages/core
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+
   conformance:
     dependencies:
       '@opentelemetry/api':

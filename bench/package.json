@@ -1,0 +1,19 @@
+{
+  "name": "done-gate-bench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "MASTRA_TELEMETRY_DISABLED=1 node --env-file-if-exists=../.env cli.ts",
+    "report": "node report.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/groq": "4.0.86",
+    "@done-gate/ai-sdk": "workspace:*",
+    "@done-gate/mastra": "workspace:*",
+    "@mastra/core": "1.86.0",
+    "ai": "7.0.181",
+    "done-gate": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

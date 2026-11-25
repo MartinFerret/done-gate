@@ -49,11 +49,16 @@ async function run(withGate: boolean): Promise<void> {
         ? { ok: true }
         : { ok: false, reason: 'No booking found for Alice on Tuesday 14:00' },
   });
+  // Without a gate, the run stops right after the step in which "done" was called.
+  let claimed = false;
   const plainDone = createTool({
     id: 'done',
     description: 'Call this when the task is finished.',
     inputSchema: z.object({ summary: z.string() }),
-    execute: () => Promise.resolve('ok'),
+    execute: () => {
+      claimed = true;
+      return Promise.resolve('ok');
+    },
   });
   const agent = new Agent({
     id: withGate ? 'booking-agent-with-gate' : 'booking-agent-no-gate',
@@ -69,15 +74,10 @@ async function run(withGate: boolean): Promise<void> {
   });
 
   console.log(`\n${withGate ? 'With done-gate' : 'Without a gate'}\nTask: ${TASK}\n`);
-  let claimed = false;
   const result = await mastra.getAgent('agent').generate(TASK, {
     maxSteps: MAX_STEPS,
     modelSettings: { temperature: 0 },
-    // Without a gate, the run stops as soon as "done" has been called.
     stopWhen: withGate ? gateClosed(gate) : () => claimed,
-    onStepFinish: (step) => {
-      claimed ||= step.toolCalls.some((call) => call.payload.toolName === 'done');
-    },
   });
 
   for (const [i, step] of result.steps.entries()) {
