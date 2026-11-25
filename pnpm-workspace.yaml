@@ -12,7 +12,3 @@ overrides:
   "@mastra/otel-bridge>@opentelemetry/api": 1.9.1
   "@mastra/observability>@opentelemetry/api": 1.9.1
   "@mastra/otel-exporter>@opentelemetry/api": 1.9.1
-
-# protobufjs (a dependency of the OTLP gRPC exporter) has a postinstall script that is not needed.
-ignoredBuiltDependencies:
-  - protobufjs
