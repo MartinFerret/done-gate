@@ -1,20 +1,27 @@
 {
   "name": "@mferret/done-gate-mastra",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "done-gate for Mastra: a \"done\" tool the agent cannot pass until the check does.",
   "license": "MIT",
   "author": "Martin Ferret",
+  "homepage": "https://github.com/MartinFerret/done-gate#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MartinFerret/done-gate.git",
     "directory": "packages/mastra"
   },
+  "bugs": {
+    "url": "https://github.com/MartinFerret/done-gate/issues"
+  },
   "keywords": [
     "ai",
     "agent",
-    "ai-sdk",
-    "vercel",
-    "verification"
+    "agents",
+    "llm",
+    "mastra",
+    "verification",
+    "guardrail",
+    "done-gate"
   ],
   "type": "module",
   "sideEffects": false,
@@ -41,7 +48,7 @@
   },
   "peerDependencies": {
     "@mastra/core": "^1.86.0",
-    "@mferret/done-gate": "workspace:^",
+    "@mferret/done-gate": "^0.1.0",
     "zod": "^3.25.0 || ^4.0.0"
   },
   "devDependencies": {

@@ -2,7 +2,7 @@
 
 An AI agent says "done". done-gate asks the real system whether that is true before the run is allowed to end. If it is not, the agent gets the reason back and keeps working.
 
-**Status:** library, two adapters, conformance in CI, and four measured batches of ten runs. Not published to npm.
+**Status:** version 0.1.0. Library, two adapters, conformance in CI, and four measured batches of ten runs.
 
 ---
 
@@ -84,7 +84,13 @@ const decision = await gate.decide(claim);
 | `@mferret/done-gate-ai-sdk` | `doneTool` and `gateClosed` for the Vercel AI SDK 7. |
 | `@mferret/done-gate-mastra` | `doneTool` and `gateClosed` for Mastra 1.x. |
 
-Nothing is published to npm. To try it, clone the repo (see [Run it](#run-it)).
+```sh
+npm install @mferret/done-gate                                          # the gate alone
+npm install @mferret/done-gate @mferret/done-gate-ai-sdk ai             # with the Vercel AI SDK
+npm install @mferret/done-gate @mferret/done-gate-mastra @mastra/core zod   # with Mastra
+```
+
+ESM only, Node 22 or later. To run the examples and the experiment, clone the repo (see [Run it](#run-it)).
 
 ---
 

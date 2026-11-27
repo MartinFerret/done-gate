@@ -1,20 +1,28 @@
 {
   "name": "@mferret/done-gate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Stops an AI agent from declaring \"done\" until a check against the real system passes.",
   "license": "MIT",
   "author": "Martin Ferret",
+  "homepage": "https://github.com/MartinFerret/done-gate#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MartinFerret/done-gate.git",
     "directory": "packages/core"
   },
+  "bugs": {
+    "url": "https://github.com/MartinFerret/done-gate/issues"
+  },
   "keywords": [
     "ai",
     "agent",
+    "agents",
+    "llm",
     "harness",
     "verification",
-    "opentelemetry"
+    "guardrail",
+    "opentelemetry",
+    "tracing"
   ],
   "type": "module",
   "sideEffects": false,
@@ -39,11 +47,6 @@
     "build": "tsdown",
     "typecheck": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@opentelemetry/api": "1.10.0",
-    "@opentelemetry/context-async-hooks": "3.1.1",
-    "@opentelemetry/sdk-trace": "3.1.1"
-  },
   "peerDependencies": {
     "@opentelemetry/api": "^1.9.0"
   },
@@ -51,5 +54,10 @@
     "@opentelemetry/api": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@opentelemetry/api": "1.10.0",
+    "@opentelemetry/context-async-hooks": "3.1.1",
+    "@opentelemetry/sdk-trace": "3.1.1"
   }
 }

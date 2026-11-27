@@ -1,20 +1,28 @@
 {
   "name": "@mferret/done-gate-ai-sdk",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "done-gate for the Vercel AI SDK: a \"done\" tool the agent cannot pass until the check does.",
   "license": "MIT",
   "author": "Martin Ferret",
+  "homepage": "https://github.com/MartinFerret/done-gate#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MartinFerret/done-gate.git",
     "directory": "packages/ai-sdk"
   },
+  "bugs": {
+    "url": "https://github.com/MartinFerret/done-gate/issues"
+  },
   "keywords": [
     "ai",
     "agent",
+    "agents",
+    "llm",
     "ai-sdk",
     "vercel",
-    "verification"
+    "verification",
+    "guardrail",
+    "done-gate"
   ],
   "type": "module",
   "sideEffects": false,
@@ -41,7 +49,7 @@
   },
   "peerDependencies": {
     "ai": "^7.0.0",
-    "@mferret/done-gate": "workspace:^"
+    "@mferret/done-gate": "^0.1.0"
   },
   "devDependencies": {
     "@ai-sdk/otel": "1.0.181",
